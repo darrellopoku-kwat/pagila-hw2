@@ -8,9 +8,9 @@
  * https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-correlated-subquery/
  */
 
-Select film_id, title,
+Select film_id, title
 from film
-Where rental rate > (
+Where rental_rate > (
     Select AVG(rental_rate) 
     from film
 )

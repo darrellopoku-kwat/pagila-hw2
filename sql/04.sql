@@ -4,3 +4,14 @@
  * HINT:
  * It's possible to solve this problem both with and without subqueries.
  */
+SELECT
+    f.title
+FROM film AS f
+JOIN inventory AS i
+    ON f.film_id = i.film_id
+JOIN rental AS r
+    ON i.inventory_id = r.inventory_id
+WHERE r.customer_id = 1
+GROUP BY f.title
+HAVING COUNT(r.rental_id) > 1
+ORDER BY f.title;
